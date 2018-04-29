@@ -26,6 +26,8 @@ requirements:
     - setuptools
 
 test:
+  requires:
+    - paste
   imports:
     - gunicorn
     - gunicorn.app
