@@ -1,21 +1,17 @@
-{% set name = "gunicorn" %}
-{% set version = "19.7.1" %}
-{% set sha256 = "eee1169f0ca667be05db3351a0960765620dad53f53434262ff8901b68a1b622" %}
-{% set build = 0 %}
+{% set version = "19.8.0" %}
 
 package:
-  name: {{ name }}
+  name: gunicorn
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version}}.tar.gz
   url: https://pypi.io/packages/source/g/gunicorn/gunicorn-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: eb8d8924b117a609fae9f8cd85df0cad3535dd613fdbcdbba3ee88d5459f1d4f
 
 build:
   skip: True  # [win]
-  number: {{ build }}
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
   preserve_egg_dir: True
   entry_points:
     - gunicorn=gunicorn.app.wsgiapp:run
@@ -24,13 +20,15 @@ build:
 requirements:
   build:
     - python
-    - setuptools
-
+    - pip
   run:
     - python
     - setuptools
 
 test:
+  requires:
+    - paste
+    - pastedeploy		
   imports:
     - gunicorn
     - gunicorn.app
@@ -40,9 +38,6 @@ test:
   commands:
     - gunicorn --help
     - gunicorn_paster --help
-  requires:
-    - paste
-    - pastedeploy
 
 about:
   home: http://gunicorn.org
