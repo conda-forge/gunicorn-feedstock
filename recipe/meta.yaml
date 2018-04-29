@@ -28,6 +28,7 @@ requirements:
 test:
   requires:
     - paste
+    - pastedeploy		
   imports:
     - gunicorn
     - gunicorn.app
