@@ -10,7 +10,7 @@ source:
 
 build:
   skip: true  # [win]
-  skip: true  # [py27]
+  skip: true  # [py<36]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   preserve_egg_dir: true
@@ -26,7 +26,7 @@ requirements:
     - pip
   run:
     - python
-    - setuptools
+    - setuptools >=3.0
 
 test:
   imports:
