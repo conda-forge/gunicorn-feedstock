@@ -244,6 +244,7 @@ Installing `gunicorn` from the `conda-forge` channel can be achieved by adding `
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `gunicorn` can be installed with:
@@ -326,7 +327,4 @@ Feedstock Maintainers
 * [@jakirkham](https://github.com/jakirkham/)
 * [@kwilcox](https://github.com/kwilcox/)
 * [@sodre](https://github.com/sodre/)
-
-
-<!-- dummy commit to enable rerendering -->
 
