@@ -9,13 +9,12 @@ source:
   sha256: f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec
 
 build:
-  skip: true  # [win]
-  skip: true  # [py<38]
   number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   preserve_egg_dir: true
   entry_points:
     - gunicorn=gunicorn.app.wsgiapp:run
+  skip: true  # [py>312]
 
 requirements:
   build:
@@ -24,10 +23,12 @@ requirements:
   host:
     - python
     - pip
+    - setuptools >=61.2
   run:
     - python
     - setuptools >=3.0
     - packaging
+    - portalocker
 
 test:
   imports:
@@ -39,6 +40,7 @@ test:
   commands:
     - gunicorn --help
   requires:
+    - python
     - paste
     - pastedeploy
 
