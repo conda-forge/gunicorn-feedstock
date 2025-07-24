@@ -9,8 +9,6 @@ source:
   sha256: f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec
 
 build:
-  skip: true  # [win]
-  skip: true  # [py<38]
   number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   preserve_egg_dir: true
