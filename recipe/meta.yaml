@@ -1,4 +1,4 @@
-{% set version = "25.0.1" %}
+{% set version = "25.0.2" %}
 
 package:
   name: gunicorn
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/g/gunicorn/gunicorn-{{ version }}.tar.gz
-  sha256: 573e053aa950246e307ea908bd7ddce1870d41a40aec0c935938c586f0b9b946
+  sha256: 8e44f2f7cf791de60c84ce119221c26121fd2ffcb27badfbced5a1c919d35d67
 
 build:
   skip: true  # [win]
